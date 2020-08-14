@@ -1,21 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    exclude-result-prefixes="xs"
-    version="2.0">
-    
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" exclude-result-prefixes="xs" version="2.0">
+
     <xsl:output method="xhtml"/>
-    
+
     <xsl:param name="max-items" select="100"/>
-    
+
     <xsl:template match="text()"/>
 
-    <xsl:template match="/*[self::CMD_ComponentSpec|self::ComponentSpec]">
+    <xsl:template match="/*[self::CMD_ComponentSpec | self::ComponentSpec]">
         <html>
             <head>
                 <title>
                     <xsl:choose>
-                        <xsl:when test="@isProfile='true'">
+                        <xsl:when test="@isProfile = 'true'">
                             <xsl:text>CMD Profile: </xsl:text>
                         </xsl:when>
                         <xsl:otherwise>
@@ -31,7 +28,7 @@
             <body>
                 <h1>
                     <xsl:choose>
-                        <xsl:when test="@isProfile='true'">
+                        <xsl:when test="@isProfile = 'true'">
                             <xsl:text>CMD Profile: </xsl:text>
                         </xsl:when>
                         <xsl:otherwise>
@@ -48,143 +45,170 @@
                 <p>
                     <xsl:value-of select="Header/Description"/>
                 </p>
-                <dl>
+                <ul style="list-style-type:none;">
                     <xsl:apply-templates/>
-                </dl>
+                </ul>
             </body>
         </html>
     </xsl:template>
-    
-    <xsl:template match="*[self::CMD_Component|self::Component]">
-        <dt>
-            <xsl:choose>
-                <xsl:when test="normalize-space(@ConceptLink)!=''">
-                    <a href="{@ConceptLink}">
-                        <xsl:value-of select="@name"/>
-                    </a>
-                </xsl:when>
-                <xsl:otherwise>
-                    <xsl:value-of select="@name"/>
-                </xsl:otherwise>
-            </xsl:choose>
-            <xsl:text> [</xsl:text>
-            <xsl:value-of select="@CardinalityMin"/>
-            <xsl:text>:</xsl:text>
-            <xsl:value-of select="@CardinalityMax"/>
-            <xsl:text>]</xsl:text>
-        </dt>
-        <dd>
-            <xsl:for-each select="Documentation|@Documentation">
-                <p>
-                    <xsl:value-of select="."/>
-                </p>
-            </xsl:for-each>
-            <dl>
-                <xsl:apply-templates/>
-            </dl>
-        </dd>
-    </xsl:template>
-    
-    <xsl:template match="*[self::CMD_Element|self::Element]">
-        <dt>
-            <xsl:choose>
-                <xsl:when test="normalize-space(@ConceptLink)!=''">
-                    <a href="{@ConceptLink}">
-                        <xsl:value-of select="@name"/>
-                    </a>
-                </xsl:when>
-                <xsl:otherwise>
-                    <xsl:value-of select="@name"/>
-                </xsl:otherwise>
-            </xsl:choose>
-            <xsl:choose>
-                <xsl:when test="@Multilingual='true'">
-                    <xsl:text> [</xsl:text>
-                    <xsl:value-of select="@CardinalityMin"/>
-                    <xsl:text>:multilingual] </xsl:text>
-                </xsl:when>
-                <xsl:otherwise>
+
+    <xsl:template match="*[self::CMD_Component | self::Component]">
+        <li>
+            <details>
+                <xsl:if test="parent::CMD_ComponentSpec | parent::ComponentSpec">
+                    <xsl:attribute name="open" select="'open'"/>
+                </xsl:if>
+                <summary>
+                    <xsl:choose>
+                        <xsl:when test="normalize-space(@ConceptLink) != ''">
+                            <a href="{@ConceptLink}">
+                                <xsl:value-of select="@name"/>
+                            </a>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:value-of select="@name"/>
+                        </xsl:otherwise>
+                    </xsl:choose>
                     <xsl:text> [</xsl:text>
                     <xsl:value-of select="@CardinalityMin"/>
                     <xsl:text>:</xsl:text>
                     <xsl:value-of select="@CardinalityMax"/>
-                    <xsl:text>] </xsl:text>
-                </xsl:otherwise>
-            </xsl:choose>
-            <xsl:value-of select="@ValueScheme"/>
-        </dt>
-        <dd>
-            <xsl:for-each select="Documentation|@Documentation">
+                    <xsl:text>]</xsl:text>
+                </summary>
                 <p>
-                    <xsl:value-of select="."/>
+                    <xsl:for-each select="Documentation | @Documentation">
+                        <p>
+                            <xsl:value-of select="."/>
+                        </p>
+                    </xsl:for-each>
+                    <ul style="list-style-type:none;">
+                        <xsl:apply-templates/>
+                    </ul>
                 </p>
-            </xsl:for-each>
-            <dl>
-                <xsl:apply-templates/>
-            </dl>
-        </dd>
+            </details>
+        </li>
     </xsl:template>
-    
+
+    <xsl:template match="*[self::CMD_Element | self::Element]">
+        <li>
+            <details>
+                <summary>
+                    <xsl:choose>
+                        <xsl:when test="normalize-space(@ConceptLink) != ''">
+                            <a href="{@ConceptLink}">
+                                <xsl:value-of select="@name"/>
+                            </a>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:value-of select="@name"/>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                    <xsl:choose>
+                        <xsl:when test="@Multilingual = 'true'">
+                            <xsl:text> [</xsl:text>
+                            <xsl:value-of select="@CardinalityMin"/>
+                            <xsl:text>:multilingual] </xsl:text>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:text> [</xsl:text>
+                            <xsl:value-of select="@CardinalityMin"/>
+                            <xsl:text>:</xsl:text>
+                            <xsl:value-of select="@CardinalityMax"/>
+                            <xsl:text>] </xsl:text>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                    <xsl:value-of select="@ValueScheme"/>
+                </summary>
+                <p>
+                    <xsl:for-each select="Documentation | @Documentation">
+                        <p>
+                            <xsl:value-of select="."/>
+                        </p>
+                    </xsl:for-each>
+                    <ul style="list-style-type:none;">
+                        <xsl:apply-templates/>
+                    </ul>
+                </p>
+            </details>
+        </li>
+    </xsl:template>
+
     <xsl:template match="pattern">
-        <dt>
-            <xsl:value-of select="."/>
-        </dt>
-    </xsl:template>
-    
-    <xsl:template match="item[count(preceding-sibling::item)&lt;$max-items]">
-        <dt>
-            <xsl:text>"</xsl:text>
-            <xsl:choose>
-                <xsl:when test="normalize-space(@ConceptLink)!=''">
-                    <a href="{@ConceptLink}">
-                        <xsl:value-of select="."/>
-                    </a>
-                </xsl:when>                
-                <xsl:otherwise>
+        <li>
+            <details>
+                <summary>
                     <xsl:value-of select="."/>
-                </xsl:otherwise>
-            </xsl:choose>
-            <xsl:text>"</xsl:text>
-        </dt>
+                </summary>
+            </details>
+        </li>
     </xsl:template>
-    
-    <xsl:template match="item[count(preceding-sibling::item)=$max-items]">
-        <dt>
-            <xsl:text>... (more then </xsl:text>
-            <xsl:value-of select="$max-items"/>
-            <xsl:text> items in the enumeration)</xsl:text>
-        </dt>
+
+    <xsl:template match="item[count(preceding-sibling::item) &lt; $max-items]">
+        <li>
+            <details>
+                <summary>
+                    <xsl:text>"</xsl:text>
+                    <xsl:choose>
+                        <xsl:when test="normalize-space(@ConceptLink) != ''">
+                            <a href="{@ConceptLink}">
+                                <xsl:value-of select="."/>
+                            </a>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:value-of select="."/>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                    <xsl:text>"</xsl:text>
+                </summary>
+            </details>
+        </li>
     </xsl:template>
-    
+
+    <xsl:template match="item[count(preceding-sibling::item) = $max-items]">
+        <li>
+            <details>
+                <summary>
+                    <xsl:text>... (more then </xsl:text>
+                    <xsl:value-of select="$max-items"/>
+                    <xsl:text> items in the enumeration)</xsl:text>
+                </summary>
+            </details>
+        </li>
+    </xsl:template>
+
     <xsl:template match="Attribute">
-        <dt>
-            <xsl:text>@</xsl:text>
-            <xsl:choose>
-                <xsl:when test="normalize-space(@ConceptLink)!=''">
-                    <a href="{@ConceptLink}">
-                        <xsl:value-of select="Name|@name"/>
-                    </a>
-                </xsl:when>                
-                <xsl:otherwise>
-                    <xsl:value-of select="Name|@name"/>
-                </xsl:otherwise>
-            </xsl:choose>
-            <xsl:choose>
-                <xsl:when test="Required='true' or @required='true'">
-                    <xsl:text> [1:1]</xsl:text>
-                </xsl:when>
-                <xsl:otherwise>
-                    <xsl:text> [0:1]</xsl:text>
-                </xsl:otherwise>
-            </xsl:choose>
-            <xsl:text> </xsl:text>
-            <xsl:value-of select="Type|@ValueScheme"/>
-        </dt>
-        <dd>
-            <dl>
+        <li>
+            <details>
+                <summary>
+                    <xsl:text>@</xsl:text>
+                    <xsl:choose>
+                        <xsl:when test="normalize-space(@ConceptLink) != ''">
+                            <a href="{@ConceptLink}">
+                                <xsl:value-of select="Name | @name"/>
+                            </a>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:value-of select="Name | @name"/>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                    <xsl:choose>
+                        <xsl:when test="Required = 'true' or @required = 'true'">
+                            <xsl:text> [1:1]</xsl:text>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:text> [0:1]</xsl:text>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                    <xsl:text> </xsl:text>
+                    <xsl:value-of select="Type | @ValueScheme"/>
+                </summary>
+            </details>
+        </li>
+        <p>
+            <ul style="list-style-type:none;">
                 <xsl:apply-templates/>
-            </dl>
-        </dd>
+            </ul>
+        </p>
     </xsl:template>
 
 </xsl:stylesheet>
