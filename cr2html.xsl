@@ -3,7 +3,39 @@
 
     <xsl:output method="xhtml"/>
 
+    <xsl:param name="id" select="()"/>
+
     <xsl:param name="max-items" select="100"/>
+
+    <xsl:param name="cr-uri" select="'https://catalog.clarin.eu/ds/ComponentRegistry/rest/registry'"/>
+    <xsl:variable name="cmd-version" select="'1.x'"/>
+    <xsl:variable name="cr-extension-xml" select="'/xml'"/>
+
+    <!-- CR REST API -->
+    <!-- clarin.eu:cr1:c_* -->
+    <xsl:variable name="cr-components" select="concat($cr-uri, '/', $cmd-version, '/components/')"/>
+    <!-- clarin.eu:cr1:p_* -->
+    <xsl:variable name="cr-profiles" select="concat($cr-uri, '/', $cmd-version, '/profiles/')"/>
+
+    <xsl:template name="main">
+        <xsl:variable name="spec">
+            <xsl:choose>
+                <xsl:when test="empty($id)">
+                    <xsl:message terminate="yes">ERR: please provide a valid profile or component id!</xsl:message>
+                </xsl:when>
+                <xsl:when test="starts-with($id, 'clarin.eu:cr1:c_')">
+                    <xsl:sequence select="doc(concat($cr-components, $id, $cr-extension-xml))"/>
+                </xsl:when>
+                <xsl:when test="starts-with($id, 'clarin.eu:cr1:p_')">
+                    <xsl:sequence select="doc(concat($cr-profiles, $id, $cr-extension-xml))"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:message terminate="yes">ERR: id[<xsl:value-of select="$id"/>] is invalid!</xsl:message>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
+        <xsl:apply-templates select="$spec"/>
+    </xsl:template>
 
     <xsl:template match="text()"/>
 
