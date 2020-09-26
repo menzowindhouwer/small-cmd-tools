@@ -2,7 +2,7 @@
  A small collection of small tools  to process CMD
 
 
-## cr2html
+## [cr2html](./cr2html)
 
 Creates an HTML view of a component or profile.
 
