@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ComponentSpec isProfile="true" CMDVersion="1.2" CMDOriginalVersion="1.2" xmlns:cue="http://www.clarin.eu/cmdi/cues/1" xsi:noNamespaceSchemaLocation="https://infra.clarin.eu/CMDI/1.x/xsd/cmd-component.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Header>
+        <ID>clarin.eu:cr1:p_1595321762459</ID>
+        <Name>TestConstraints</Name>
+        <Description>Profile to test constraint cues.</Description>
+        <Status>development</Status>
+    </Header>
+    <Component name="TestConstraints" CardinalityMin="1" CardinalityMax="1">
+        <Component name="CC" CardinalityMin="1" CardinalityMax="1">
+            <Element name="ck" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="1"/>
+            <Element name="aa" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" cue:exclusive-or="hello"/>
+            <Element name="bb" ValueScheme="string" CardinalityMin="0" CardinalityMax="1" cue:exclusive-or="hello"/>
+            <Component name="CA" CardinalityMin="0" CardinalityMax="1">
+                <Element name="ak" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="1"/>
+            </Component>
+            <Component name="CB" CardinalityMin="0" CardinalityMax="1">
+                <Element name="bk" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="1"/>
+            </Component>
+        </Component>
+    </Component>
+</ComponentSpec>
