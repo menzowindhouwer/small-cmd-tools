@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CMD xmlns="http://www.clarin.eu/cmd/1"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.clarin.eu/cmd/1 https://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/1.x/profiles/clarin.eu:cr1:p_1595321762459/xsd" CMDVersion="1.2">
+    xsi:schemaLocation="http://www.clarin.eu/cmd/1 https://infra.clarin.eu/CMDI/1.x/xsd/cmd-envelop.xsd http://www.clarin.eu/cmd/1/profiles/clarin.eu:cr1:p_1595321762459 https://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/1.x/profiles/clarin.eu:cr1:p_1595321762459/xsd" CMDVersion="1.2">
     <Header>
         <MdProfile>clarin.eu:cr1:p_1595321762459</MdProfile>
     </Header>
@@ -14,8 +14,8 @@
         <TestConstraints xmlns="http://www.clarin.eu/cmd/1/profiles/clarin.eu:cr1:p_1595321762459">
             <CC>
                 <ck>hello</ck>
-                <!--<aa>Clarin</aa>-->
-                <!--<bb>Eric</bb>-->
+                <!--<aa>Clarin</aa>
+                <bb>Eric</bb>-->
             </CC>
         </TestConstraints>        
     </Components>

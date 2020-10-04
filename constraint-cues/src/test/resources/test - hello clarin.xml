@@ -14,8 +14,8 @@
         <TestConstraints xmlns="http://www.clarin.eu/cmd/1/profiles/clarin.eu:cr1:p_1595321762459">
             <CC>
                 <ck>hello</ck>
-                <aa>Clarin</aa>
-                <!--<bb>Eric</bb>-->
+                <!--<aa>Clarin</aa>-->
+                <bb>Eric</bb>
             </CC>
         </TestConstraints>        
     </Components>
