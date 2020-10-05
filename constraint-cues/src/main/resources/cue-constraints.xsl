@@ -25,6 +25,7 @@
         <xsl:variable name="ctxt" select="current()"/>
         <sch:pattern id="{generate-id(.)}-{@name}">
             <sch:rule role="error" context="cmd:Components/cmdp:{string-join(ancestor-or-self::Component/@name,'/cmdp:')}">
+                <!-- inclusive-or -->
                 <xsl:for-each-group select="*[exists(@cue:inclusive-or)]" group-by="@cue:inclusive-or">
                     <xsl:comment expand-text="true">inclusive-or({current-grouping-key()})=[{string-join(current-group()/@name,',')}]</xsl:comment>
                     <xsl:variable name="tests" as="xs:string+">
@@ -33,6 +34,26 @@
                         </xsl:for-each>
                     </xsl:variable>
                     <sch:assert test="{string-join($tests,' or ')}"><xsl:text expand-text="true">{{{/$NS_CMDP}}}{$ctxt/@name} should contain {string-join(for $i in current-group() return('{' || $NS_CMDP || '}' || $i/@name),' or ') }</xsl:text></sch:assert>     
+                </xsl:for-each-group>
+                <!-- exclusive-or -->
+                <xsl:for-each-group select="*[exists(@cue:exclusive-or)]" group-by="@cue:exclusive-or">
+                    <xsl:comment expand-text="true">exclusive-or({current-grouping-key()})=[{string-join(current-group()/@name,',')}]</xsl:comment>
+                    <xsl:variable name="tests" as="xs:string+">
+                        <xsl:for-each select="current-group()">
+                            <xsl:text expand-text="true">exists(cmdp:{@name})</xsl:text>
+                        </xsl:for-each>
+                    </xsl:variable>
+                    <sch:assert test="{string-join($tests,' != ')}"><xsl:text expand-text="true">{{{/$NS_CMDP}}}{$ctxt/@name} should contain {string-join(for $i in current-group() return('{' || $NS_CMDP || '}' || $i/@name),' or ') }</xsl:text></sch:assert>     
+                </xsl:for-each-group>
+                <!-- exclusion -->
+                <xsl:for-each-group select="*[exists(@cue:exclusion)]" group-by="@cue:exclusion">
+                    <xsl:comment expand-text="true">exclusion({current-grouping-key()})=[{string-join(current-group()/@name,',')}]</xsl:comment>
+                    <xsl:variable name="tests" as="xs:string+">
+                        <xsl:for-each select="current-group()">
+                            <xsl:text expand-text="true">exists(cmdp:{@name})</xsl:text>
+                        </xsl:for-each>
+                    </xsl:variable>
+                    <sch:assert test="not({string-join($tests,' and ')})"><xsl:text expand-text="true">{{{/$NS_CMDP}}}{$ctxt/@name} may contain {string-join(for $i in current-group() return('{' || $NS_CMDP || '}' || $i/@name),' or ') }, but only one of them!</xsl:text></sch:assert>     
                 </xsl:for-each-group>
             </sch:rule>
         </sch:pattern>
