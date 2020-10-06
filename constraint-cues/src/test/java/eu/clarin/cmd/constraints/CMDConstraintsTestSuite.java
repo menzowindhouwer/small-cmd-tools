@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package eu.clarin.cmd.toolkit;
+package eu.clarin.cmd.constraints;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -16,8 +16,8 @@ import org.junit.runners.Suite;
  * @author menwin
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({eu.clarin.cmd.toolkit.TestCMDConstraints.class})
-public class CMDToolkitTestSuite {
+@Suite.SuiteClasses({TestCMDConstraints.class})
+public class CMDConstraintsTestSuite {
 
     @BeforeClass
     public static void setUpClass() throws Exception {
