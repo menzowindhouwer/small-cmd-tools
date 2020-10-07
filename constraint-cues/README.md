@@ -78,7 +78,7 @@ It disallows:
 $xsl2 -s:profile.xml -xsl:https://raw.githubusercontent.com/menzowindhouwer/small-cmd-tools/master/constraint-cues/src/main/resources/cue-constraints.xsl > profile.sch
 ```
 
-3. Validate your records.
+3. Validate your records comply to the constraints.
 
 ```sh
 cmdi-validator -s profile.sch record.xml
