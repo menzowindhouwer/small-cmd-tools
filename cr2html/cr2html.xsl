@@ -107,9 +107,9 @@
                     <xsl:value-of select="@CardinalityMin"/>
                     <xsl:text>:</xsl:text>
                     <xsl:value-of select="@CardinalityMax"/>
-                    <xsl:text>]</xsl:text>
+                    <xsl:text>] </xsl:text>
                     <xsl:if test="normalize-space(@ComponentRef)!='' and normalize-space($cr-viewer)!=''">
-                        <a href="{$cr-viewer}{@ComponentRef}"> view </a>
+                        <a target="_blank" href="{$cr-viewer}{@ComponentRef}">view</a>
                     </xsl:if>
                 </summary>
                 <p>
