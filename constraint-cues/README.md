@@ -80,6 +80,6 @@ $xsl2 -s:profile.xml -xsl:https://raw.githubusercontent.com/menzowindhouwer/smal
 
 3. Validate your records.
 
-```sh cmdi-validator -s profile.sch record.xml
-
+```sh
+cmdi-validator -s profile.sch record.xml
 ```
