@@ -84,6 +84,11 @@ $xsl2 -s:profile.xml -xsl:https://raw.githubusercontent.com/menzowindhouwer/smal
 cmdi-validator -s profile.sch record.xml
 ```
 
+or
+
+```sh
+SchemAnon file:$PWD?profile.sch records xml
+```
 ## Caveats
 
 1. constraint groups can only contain siblings
