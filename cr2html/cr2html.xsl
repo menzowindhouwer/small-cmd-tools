@@ -10,6 +10,8 @@
     <xsl:param name="cr-uri" select="'https://catalog.clarin.eu/ds/ComponentRegistry/rest/registry'"/>
     <xsl:variable name="cmd-version" select="'1.x'"/>
     <xsl:variable name="cr-extension-xml" select="'/xml'"/>
+    
+    <xsl:param name="cr-viewer" select="'https://menzowindhouwer.github.io/lab/cr2html/index.html#'"/>
 
     <!-- CR REST API -->
     <!-- clarin.eu:cr1:c_* -->
@@ -106,6 +108,9 @@
                     <xsl:text>:</xsl:text>
                     <xsl:value-of select="@CardinalityMax"/>
                     <xsl:text>]</xsl:text>
+                    <xsl:if test="normalize-space(@ComponentRef)!='' and normalize-space($cr-viewer)!=''">
+                        <a href="{$cr-viewer}{@ComponentRef}"> view </a>
+                    </xsl:if>
                 </summary>
                 <p>
                     <xsl:for-each select="Documentation | @Documentation">
