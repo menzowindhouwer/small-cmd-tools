@@ -83,3 +83,7 @@ $xsl2 -s:profile.xml -xsl:https://raw.githubusercontent.com/menzowindhouwer/smal
 ```sh
 cmdi-validator -s profile.sch record.xml
 ```
+
+## Caveats
+
+1. constraint groups can only contain siblings
