@@ -66,8 +66,20 @@ It disallows:
 
 ## How to
 
-First you need to add the cues to the profile/component specification. However, at the moment that is not yet possible in the editor of the Component Registry. Which means that you have to download the XML spec and localy add them.
+1. Youn eed to add the cues to the profile/component specification. However, at the moment that is not yet possible in the editor of the Component Registry. Which means that you have to download the XML spec and localy add them.
 
-Second run the XSLT to generate a set of Schematron rules to validate your records.
+![ComponentRegistry](doc/CLARIN_Component_Registry.png)
 
-Finally validate your records.
+![oXygen](doc/oXygen.png)
+
+2. Run the XSLT to generate a set of Schematron rules to validate your records.
+
+```sh
+$xsl2 -s:profile.xml -xsl:https://raw.githubusercontent.com/menzowindhouwer/small-cmd-tools/master/constraint-cues/src/main/resources/cue-constraints.xsl > profile.sch
+```
+
+3. Validate your records.
+
+```sh cmdi-validator -s profile.sch record.xml
+
+```
