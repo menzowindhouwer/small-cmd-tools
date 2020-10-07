@@ -87,7 +87,7 @@ cmdi-validator -s profile.sch record.xml
 or
 
 ```sh
-SchemAnon file:$PWD?profile.sch records xml
+SchemAnon file:$PWD/profile.sch records xml
 ```
 ## Caveats
 
