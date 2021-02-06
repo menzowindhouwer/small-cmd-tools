@@ -66,7 +66,7 @@ It disallows:
 
 ## How to
 
-1. Youn eed to add the cues to the profile/component specification. However, at the moment that is not yet possible in the editor of the Component Registry. Which means that you have to download the XML spec and localy add them.
+1. You need to add the cues to the profile/component specification. However, at the moment that is not yet possible in the editor of the Component Registry. Which means that you have to download the XML spec and localy add them.
 
 ![ComponentRegistry](doc/CLARIN_Component_Registry.png)
 
