@@ -8,14 +8,14 @@
     </Header>
     <Component name="TestConstraints" CardinalityMin="1" CardinalityMax="1">
         <Component name="CC" CardinalityMin="1" CardinalityMax="1">
-            <Element name="ck" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmdi/cues/1"/>
+            <Element name="ck" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1"/>
             <Element name="aa" ValueScheme="string" CardinalityMin="0" CardinalityMax="1"/>
             <Element name="bb" ValueScheme="string" CardinalityMin="0" CardinalityMax="1"/>
             <Component name="CA" CardinalityMin="0" CardinalityMax="1">
-                <Element name="ak" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmdi/cues/1"/>
+                <Element name="ak" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1"/>
             </Component>
             <Component name="CB" CardinalityMin="0" CardinalityMax="1">
-                <Element name="bk" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmdi/cues/1"/>
+                <Element name="bk" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="1" xmlns:cue="http://www.clarin.eu/cmd/cues/1"/>
             </Component>
         </Component>
     </Component>

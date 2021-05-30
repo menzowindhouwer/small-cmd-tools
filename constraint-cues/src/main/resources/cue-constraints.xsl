@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    xmlns:cue="http://www.clarin.eu/cmdi/cues/1"
+    xmlns:cue="http://www.clarin.eu/cmd/cues/1"
     xmlns:sch="http://purl.oclc.org/dsdl/schematron" 
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     exclude-result-prefixes="xs"
