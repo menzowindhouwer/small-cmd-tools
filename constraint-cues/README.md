@@ -1,6 +1,6 @@
 # CMDI Constraint Cues
 
-This project provides support for a set of CMDI cues to add some validation constraints which can't be expressed in a profile/component speification and its derived XSD.
+This project provides support for a set of CMDI cues to add some validation constraints which can't be expressed in a profile/component specification and its derived XSD.
 
 Lets assume we have a Component `CC`, which has three elements `ck`, `aa` and `bb`. Instantiating`ck` is mandatory, which can be enforced by giving it a minimum cardinality of 1. Instantiating `aa` and/or `bb` can be mandatory as well , e.g., one has to instantiate one or both of them. This can't be handeled by cardinalities, as both of them have to be optional, i.e. have a minimum cardinality of 0. Here come the constraint cues into play:
 
