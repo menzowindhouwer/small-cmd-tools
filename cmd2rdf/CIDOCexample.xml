@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ComponentSpec isProfile="true" CMDVersion="1.2" CMDOriginalVersion="1.2" xsi:noNamespaceSchemaLocation="https://infra.clarin.eu/CMDI/1.x/xsd/cmd-component.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Header>
+        <ID>clarin.eu:cr1:p_1733830015119</ID>
+        <Name>CIDOCexample</Name>
+        <Description>CIDOC CRM example</Description>
+        <Status>development</Status>
+    </Header>
+    <Component name="CIDOCexample" CardinalityMin="1" CardinalityMax="1">
+        <Component name="Person" ConceptLink="http://www.cidoc-crm.org/cidoc-crm/E21_Person" CardinalityMin="1" CardinalityMax="1" cue:rdf_subject="id" xmlns:cue="http://www.clarin.eu/cmd/cues/1">
+            <Element name="id" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="1"/>
+            <Element name="label" ConceptLink="http://www.w3.org/2000/01/rdf-schema#label" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" Multilingual="true"/>
+            <Component name="is_identified_by" ConceptLink="http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by" CardinalityMin="1" CardinalityMax="1">
+                <Component name="Linguistic_Appellation" ConceptLink="http://www.cidoc-crm.org/cidoc-crm/E33_E41_Linguistic_Appellation" CardinalityMin="1" CardinalityMax="1" cue:rdf_subject="id">
+                    <Element name="id" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" cue:DisplayPriority="1"/>
+                    <Element name="label" ConceptLink="http://www.w3.org/2000/01/rdf-schema#label" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" Multilingual="true"/>
+                    <Element name="has_symbolic_content" ConceptLink="http://www.cidoc-crm.org/cidoc-crm/P190_has_symbolic_content" ValueScheme="string" CardinalityMin="1" CardinalityMax="1" Multilingual="true"/>
+                    <Element name="has_type" ConceptLink="http://www.cidoc-crm.org/cidoc-crm/P2_has_type" CardinalityMin="1" CardinalityMax="1">
+                        <ValueScheme>
+                            <Vocabulary>
+                                <enumeration>
+                                    <item ConceptLink="https://vocab.getty.edu/aat/300404657">pseudonyms</item>
+                                </enumeration>
+                            </Vocabulary>
+                        </ValueScheme>
+                    </Element>
+                </Component>
+            </Component>
+        </Component>
+    </Component>
+</ComponentSpec>

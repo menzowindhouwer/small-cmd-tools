@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cmd:CMD xmlns:clariah="http://www.clariah.eu/" xmlns:cmd="http://www.clarin.eu/cmd/"
+    xmlns:js="http://www.w3.org/2005/xpath-functions"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.clarin.eu/cmd/ http://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/profiles/clarin.eu:cr1:p_1733830015119/xsd"
+    CMDVersion="1.1">
+    <cmd:Header>
+        <cmd:MdCreator>service</cmd:MdCreator>
+        <cmd:MdCreationDate clariah:epoch="1734339022">2024-12-16</cmd:MdCreationDate>
+        <cmd:MdSelfLink>unl://1</cmd:MdSelfLink>
+        <cmd:MdProfile>clarin.eu:cr1:p_1733830015119</cmd:MdProfile>
+    </cmd:Header>
+    <cmd:Resources>
+        <cmd:ResourceProxyList/>
+        <cmd:JournalFileProxyList/>
+        <cmd:ResourceRelationList/>
+        <cmd:IsPartOfList/>
+    </cmd:Resources>
+    <cmd:Components>
+        <cmd:CIDOCexample>
+            <cmd:Person>
+                <cmd:id>uuid:AF</cmd:id>
+                <cmd:label xml:lang="en">Beth Biersbodner</cmd:label>
+                <cmd:is_identified_by>
+                    <cmd:Linguistic_Appellation>
+                        <cmd:id>uuid:BD</cmd:id>
+                        <cmd:label xml:lang="en">Biersbodner</cmd:label>
+                        <cmd:has_symbolic_content xml:lang="en">Biersbodner</cmd:has_symbolic_content>
+                        <cmd:has_type>pseudonyms</cmd:has_type>
+                    </cmd:Linguistic_Appellation>
+                </cmd:is_identified_by>
+            </cmd:Person>
+        </cmd:CIDOCexample>
+    </cmd:Components>
+</cmd:CMD>
