@@ -4,7 +4,7 @@ This project provides support for a set of CMDI cues to enrich a profile with it
 
 ### rdf-subject
 
-Used omn a Component to indicate how the RDF subject should be determined:
+Used on a Component to indicate how the RDF subject should be determined:
 
 - ``xpath:...`` XPath 3.0 expression  on the component instance
 - ``_`` will generate an blank node identifier
