@@ -15,7 +15,7 @@ Used on a Component to indicate how the RDF subject should be determined:
 ```sh
 $ xsl.sh -s:record-1.xml -xsl:cmd2rdf.xsl > record-1.trix
 ```
-**note**: the [xsl.sh](./xsl.sh) script needs [wget](https://www.gnu.org/software/wget/) to download the [saxon](https://www.saxonica.com/) [XSLT](https://www.w3.org/TR/xslt/) processor.
+**note**: the [xsl.sh](./xsl.sh) script needs [wget](https://www.gnu.org/software/wget/), [readlink](https://man7.org/linux/man-pages/man2/readlink.2.html) and [java](https://www.oracle.com/java/) to download and run the [saxon](https://www.saxonica.com/) [XSLT](https://www.w3.org/TR/xslt/) processor.
 
 Output is in the [TriX format](https://web.archive.org/web/20061121203144/http://swdev.nokia.com/trix/trix.html)
 
