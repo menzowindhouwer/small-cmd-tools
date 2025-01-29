@@ -12,7 +12,7 @@
     <xsl:variable name="rec" select="/"/>
     <xsl:variable name="prof-uri"
         select="concat($registry, /cmd:CMD/cmd:Header/cmd:MdProfile, '/xml')"/>
-    <!--<xsl:param name="prof-uri" select="'file:/Users/menzowi/Documents/Projects/GLOBALISE/Test_XML_Package/Example_CMDI/CIDOCexample.xml'"/>-->
+    <!--<xsl:param name="prof-uri" select="'./CIDOCexample.xml'"/>-->
     <xsl:param name="prof-doc" select="doc($prof-uri)"/>
     <xsl:variable name="A" select="'http://www.w3.org/1999/02/22-rdf-syntax-ns#type'"/>
     <xsl:variable name="NL" select="system-property('line.separator')"/>

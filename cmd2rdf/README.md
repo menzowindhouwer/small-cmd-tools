@@ -13,11 +13,12 @@ Used omn a Component to indicate how the RDF subject should be determined:
 ## Run the XSLT
 
 ```sh
-$xsl2.sh -s:record-1.xml -xsl:lcmd2rdf.xsl > record-1.trix
+$ xsl.sh -s:record-1.xml -xsl:cmd2rdf.xsl > record-1.trix
 ```
+**note**: the [xsl.sh](./xsl.sh) script needs [wget](https://www.gnu.org/software/wget/) to download the [saxon](https://www.saxonica.com/) [XSLT](https://www.w3.org/TR/xslt/) processor.
 
 Output is in the [TriX format](https://web.archive.org/web/20061121203144/http://swdev.nokia.com/trix/trix.html)
 
 ## Caveats
 
-1. The RDF semantics of ested components need tp be fleshed out better.
+1. The RDF semantics of nested components need to be fleshed out better.

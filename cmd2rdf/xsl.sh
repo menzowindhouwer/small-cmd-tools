@@ -1,7 +1,7 @@
 #!/bin/bash
 
 JAVA="java"
-READLINK="greadlink"
+READLINK="readlink"
 
 export LANG=en_US.UTF-8
 
